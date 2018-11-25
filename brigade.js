@@ -11,5 +11,5 @@ events.on("push", (e, p) => {
     O365_WEBHOOK: p.secrets.O365_WEBHOOK,
     O365_MESSAGE: "Message Body",
   };
-  slack.run();
+  o365.run();
 });

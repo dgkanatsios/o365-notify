@@ -6,3 +6,6 @@ cloneURL: "https://github.com/dgkanatsios/o365-notify.git"
 sharedSecret: "YOUR_SECRET"
 secrets:
   O365_WEBHOOK: https://outlook.office.com/webhook/<GUID>@<GUID>/IncomingWebhook/<GUID>/<GUID>
+
+# install with
+# helm install brigade/brigade-project --name o365-notify -f o365-notify.yaml

@@ -28,7 +28,7 @@ or
 O365_WEBHOOK=https://outlook.office.com/webhook/<GUID>@<GUID>/IncomingWebhook/<GUID>/<GUID> O365_ADAPTIVECARD="{\"@type\": \"MessageCard\",\"@context\": \"https:\/\/schema.org\/extensions\",\"summary\": \"Issue 176715375\",\"themeColor\": \"0078D7\",\"title\": \"Issue opened: \\\"Push notifications not working anymore\\\"\",\"sections\": [{\"activityTitle\": \"Miguel Garcie\",\"activitySubtitle\": \"9\/13\/2016, 11:46am\",\"activityImage\": \"https:\/\/connectorsdemo.azurewebsites.net\/images\/MSC12_Oscar_002.jpg\",\"facts\": [{\"name\": \"Repository:\",\"value\": \"mgarcia\\\est\"},{\"name\": \"Issue #:\",\"value\": \"176715375\"}],\"text\": \"There is a problem with Push notifications, they don't seem to be picked up by the connector.\"}],\"potentialAction\": [{\"@type\": \"ActionCard\",\"name\": \"Add a comment\",\"inputs\": [{\"@type\": \"TextInput\",\"id\": \"comment\",\"title\": \"Enter your comment\",\"isMultiline\": true}],\"actions\": [{\"@type\": \"HttpPOST\",\"name\": \"OK\",\"target\": \"http:\/\/...\"}]},{\"@type\": \"HttpPOST\",\"name\": \"Close\",\"target\": \"http:\/\/...\"},{\"@type\": \"OpenUri\",\"name\": \"View in GitHub\",\"targets\": [{\"os\": \"default\",\"uri\": \"http:\/\/...\"}]}]}" ./o365-notify
 ```
 
-Whereas if you want to use the Docker container:
+Whereas you should use this command if you want to use the Docker container:
 
 ```bash
 docker run -e O365_WEBHOOK=https://outlook.office.com/webhook/<GUID>@<GUID>/IncomingWebhook/<GUID>/<GUID> -e O365_MESSAGE="Hello world" dgkanatsios/o365-notify:0.0.1

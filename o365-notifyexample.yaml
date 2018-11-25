@@ -5,4 +5,4 @@ cloneURL: "https://github.com/dgkanatsios/o365-notify.git"
 # MAKE SURE YOU CHANGE THIS. It's basically a password.
 sharedSecret: "YOUR_SECRET"
 secrets:
-  O365_WEBHOOK:https://outlook.office.com/webhook/<GUID>@<GUID>/IncomingWebhook/<GUID>/<GUID>
+  O365_WEBHOOK: https://outlook.office.com/webhook/<GUID>@<GUID>/IncomingWebhook/<GUID>/<GUID>

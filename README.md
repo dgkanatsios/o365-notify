@@ -34,5 +34,28 @@ Whereas if you want to use the Docker container:
 docker run -e O365_WEBHOOK=https://outlook.office.com/webhook/<GUID>@<GUID>/IncomingWebhook/<GUID>/<GUID> -e O365_MESSAGE="Hello world" dgkanatsios/o365-notify:0.0.1
 ```
 
+### In Brigade
+
+You can easily use this utility inside Brigade hooks:
+
+
+```javascript
+const {events, Job} = require("brigadier");
+
+events.on("push", (e, p) => {
+
+  var o365 = new Job("o365-notify-notify", "dgkanatsios/o365-notify:0.0.1", ["/o365-notify"]);
+
+  // This doesn't need access to storage, so skip mounting to speed things up.
+  o365.storage.enabled = false;
+  o365.env = {
+    // It's best to store the webhook URL in a project's secrets.
+    O365_WEBHOOK: p.secrets.O365_WEBHOOK,
+    O365_MESSAGE: "Message Body",
+  };
+  slack.run();
+});
+```
+
 ---
 Inspired by project [technosophos/slack-notify](https://github.com/technosophos/slack-notify).

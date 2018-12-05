@@ -1,4 +1,4 @@
-const {events, Job} = require("brigadier");
+const { events, Job } = require("brigadier");
 
 events.on("push", (e, p) => {
 
@@ -12,4 +12,9 @@ events.on("push", (e, p) => {
     O365_MESSAGE: "Message Body",
   };
   o365.run();
+});
+
+
+events.on("webhook", (e, p) => {
+  console.log(p);
 });

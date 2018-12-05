@@ -16,10 +16,12 @@ events.on("push", (e, p) => {
 
 
 events.on("webhook", (e, p) => {
-  var echo = new Job("echo", "alpine:3.4");
+  var echo = new Job("echo", "alpine:3.8");
+  echo.storage.enabled = false;
   echo.tasks = [
     "echo Project " + p.name,
-    "echo Event $EVENT_NAME"
+    "echo Event $EVENT_NAME",
+    "echo Payload " + JSON.stringify(e)
   ];
 
   echo.env = {

@@ -44,7 +44,7 @@ const {events, Job} = require("brigadier");
 
 events.on("push", (e, p) => {
 
-  var o365 = new Job("o365-notify-notify", "dgkanatsios/o365-notify:0.0.1", ["/o365-notify"]);
+  var o365 = new Job("o365-notify-notify", "dgkanatsios/o365-notify:0.0.1", ["./o365-notify"]);
 
   // This doesn't need access to storage, so skip mounting to speed things up.
   o365.storage.enabled = false;

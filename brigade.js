@@ -21,12 +21,11 @@ events.on("webhook", (e, p) => {
   echo.tasks = [
     "echo Project " + p.name,
     "echo Event $EVENT_NAME",
-    "echo Payload $PAYLOAD"
+    "echo Payload " + JSON.stringify(e)
   ];
 
   echo.env = {
-    "EVENT_NAME": e.type,
-    "PAYLOAD": e.type
+    "EVENT_NAME": e.type
   };
 
   echo.run();

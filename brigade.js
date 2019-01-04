@@ -26,7 +26,7 @@ events.on("webhook", (e, p) => {
 
   echo.env = {
     "EVENT_NAME": e.type,
-    "PAYLOAD": e
+    "PAYLOAD": e.type
   };
 
   echo.run();

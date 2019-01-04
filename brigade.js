@@ -21,7 +21,7 @@ events.on("webhook", (e, p) => {
   echo.tasks = [
     "echo Project " + p.name,
     "echo Event $EVENT_NAME",
-    "echo Payload " + e.payload
+    "echo Payload " + JSON.stringify(e)
   ];
 
   echo.env = {

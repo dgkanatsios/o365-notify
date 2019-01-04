@@ -20,7 +20,8 @@ events.on("webhook", (e, p) => {
   echo.storage.enabled = false;
   echo.tasks = [
     "echo Project " + p.name,
-    "echo Event $EVENT_NAME"
+    "echo Event $EVENT_NAME",
+    "echo Payload " + e.payload
   ];
 
   echo.env = {

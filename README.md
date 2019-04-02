@@ -38,24 +38,25 @@ docker run -e O365_WEBHOOK=https://outlook.office.com/webhook/<GUID>@<GUID>/Inco
 
 You can easily use this utility inside Brigade hooks:
 
-
+`brigade.js` file
 ```javascript
 const {events, Job} = require("brigadier");
 
-events.on("push", (e, p) => {
-
+events.on("exec", (e, p) => {
   var o365 = new Job("o365-notify-notify", "dgkanatsios/o365-notify:0.0.1", ["./o365-notify"]);
 
   // This doesn't need access to storage, so skip mounting to speed things up.
   o365.storage.enabled = false;
   o365.env = {
     // It's best to store the webhook URL in a project's secrets.
-    O365_WEBHOOK: p.secrets.O365_WEBHOOK,
+    O365_WEBHOOK: p.secrets.O365_WEBHOOK, // or "https://outlook.office.com/webhook/XXX/IncomingWebhook/YYY/ZZZ"
     O365_MESSAGE: "Message Body",
   };
   o365.run();
 });
 ```
+
+Then, you could use `brig run <project> -f brigade.js` to test the project.
 
 ---
 Inspired by project [technosophos/slack-notify](https://github.com/technosophos/slack-notify).

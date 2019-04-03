@@ -13,8 +13,9 @@ builddocker: build
 
 .PHONY: pushdocker 
 pushdocker:
-	docker push $(REGISTRY)/$(REPO)/$(EXE_NAME):$(VERSION)
 	docker tag $(REGISTRY)/$(REPO)/$(EXE_NAME):$(VERSION) $(REGISTRY)/$(REPO)/$(EXE_NAME):latest
+	docker push $(REGISTRY)/$(REPO)/$(EXE_NAME):$(VERSION)
+	docker push $(REGISTRY)/$(REPO)/$(EXE_NAME):latest
 
 .PHONY: clean	
 clean:
